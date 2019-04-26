@@ -23,7 +23,8 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-googlemaps": {
-        "API_KEY_FOR_BROWSER": "AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU"
+        "API_KEY_FOR_ANDROID": "AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU",
+        "API_KEY_FOR_IOS": "AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU"
       }
     },
     "platforms": [

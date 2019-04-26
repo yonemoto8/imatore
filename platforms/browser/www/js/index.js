@@ -54,13 +54,18 @@ document.addEventListener('deviceready', function() {
     camera: {
       latLng: {
         lat: 33.59212165093855,
-        lng: 130.90206964060062
+        lng: 130.43206964060062
       },
       zoom: 14
     }
   });
 
-  
+  var marker2 = map.addMarker({
+    'position': {
+      lat: 33.59202165093855,
+      lng: 130.40406964060062
+    }
+  });
 
 
   
@@ -101,9 +106,10 @@ document.addEventListener('deviceready', function() {
 
 var div = document.getElementById("map");
 var map = plugin.google.maps.Map.getMap(div);
-var button = document.getElementsById('search')[0];
+var button = div.getElementsByTagName('button')[0];
 button.addEventListener('click', function() {
   // 現在位置の取得を試みる
+  console.log('クリックされました！');
   LocationService.getMyLocation()
     .then(function(location) {
       // 現在位置が取得できた
@@ -135,10 +141,4 @@ button.addEventListener('click', function() {
     });
 });
 
-var marker2 = map.addMarker({
-  'position': {
-    lat: 33.59212165093855,
-    lng: 130.40206964060062
-  }
-});
 app.initialize();

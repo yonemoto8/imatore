@@ -54,7 +54,7 @@ document.addEventListener('deviceready', function() {
     camera: {
       latLng: {
         lat: 33.59212165093855,
-        lng: 130.90206964060062
+        lng: 130.43206964060062
       },
       zoom: 14
     }
@@ -62,44 +62,12 @@ document.addEventListener('deviceready', function() {
 
   var marker2 = map.addMarker({
     'position': {
-      lat: 33.59212165093855,
-      lng: 130.40206964060062
+      lat: 33.59202165093855,
+      lng: 130.40406964060062
     }
   });
 
-  var button = document.getElementsById('search')[0];
-  button.addEventListener('click', function() {
-    // 現在位置の取得を試みる
-    LocationService.getMyLocation()
-      .then(function(location) {
-        // 現在位置が取得できた
-        var msg = ["Current your location:\n",
-          "latitude:" + location.latLng.lat,
-          "longitude:" + location.latLng.lng,
-          "speed:" + location.speed,
-          "time:" + location.time,
-          "bearing:" + location.bearing].join("\n");
 
-        // マーカーを追加
-        var marker = map.addMarker({
-          'position': location.latLng,
-          'title': msg
-        });
-
-        // カメラの位置を移動する
-        map.animateCamera({
-          target: location.latLng,
-          zoom: 16
-        });
-
-        // 情報ウィンドウを表示する
-        marker.showInfoWindow();
-      })
-      .catch(function(error) {
-        // 位置情報が取得できなかったとき
-        alert(JSON.stringify(error));
-      });
-  });
   
   // マップが初期表示できる状態になったら何かする場合はこのように設定する
   map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
@@ -135,5 +103,42 @@ document.addEventListener('deviceready', function() {
     });*/
   });
 }, false);
+
+var div = document.getElementById("map");
+var map = plugin.google.maps.Map.getMap(div);
+var button = div.getElementsByTagName('button')[0];
+button.addEventListener('click', function() {
+  // 現在位置の取得を試みる
+  console.log('クリックされました！');
+  LocationService.getMyLocation()
+    .then(function(location) {
+      // 現在位置が取得できた
+      var msg = ["Current your location:\n",
+        "latitude:" + location.latLng.lat,
+        "longitude:" + location.latLng.lng,
+        "speed:" + location.speed,
+        "time:" + location.time,
+        "bearing:" + location.bearing].join("\n");
+
+      // マーカーを追加
+      var marker = map.addMarker({
+        'position': location.latLng,
+        'title': msg
+      });
+
+      // カメラの位置を移動する
+      map.animateCamera({
+        target: location.latLng,
+        zoom: 16
+      });
+
+      // 情報ウィンドウを表示する
+      marker.showInfoWindow();
+    })
+    .catch(function(error) {
+      // 位置情報が取得できなかったとき
+      alert(JSON.stringify(error));
+    });
+});
 
 app.initialize();
