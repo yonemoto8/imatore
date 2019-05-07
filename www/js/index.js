@@ -50,6 +50,10 @@ document.addEventListener('deviceready', function() {
   // 対象の DOM 要素に Google マップを配置する
   var mapElement = document.getElementById('map');
   // マップの初期位置を表示する (座標は日本の中心あたりを適当に)
+  plugin.google.maps.environment.setEnv({
+    'API_KEY_FOR_BROWSER_RELEASE':'',
+    'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU'
+  });
   map = plugin.google.maps.Map.getMap(mapElement, {
     camera: {
       latLng: {
@@ -102,6 +106,8 @@ document.addEventListener('deviceready', function() {
       alert(JSON.stringify(error));
     });*/
   });
+
+  
 }, false);
 
 var div = document.getElementById("map");
