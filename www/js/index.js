@@ -33,11 +33,11 @@ var app = {
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
+        /* var listeningElement = parentElement.querySelector('.listening');
         var receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+        receivedElement.setAttribute('style', 'display:block;');*/
 
         console.log('Received Event: ' + id);
     }
@@ -49,12 +49,15 @@ var map = null;
 document.addEventListener('deviceready', function() {
   // 対象の DOM 要素に Google マップを配置する
   var mapElement = document.getElementById('map');
-  // マップの初期位置を表示する (座標は日本の中心あたりを適当に)
+
+  // ブラウザでGoogleMapを正常に表示させるにはAPIキーをここで設定する必要がある
   plugin.google.maps.environment.setEnv({
     'API_KEY_FOR_BROWSER_RELEASE':'',
-    'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU'
+    'API_KEY_FOR_BROWSER_DEBUG':'AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU'
   });
+
   map = plugin.google.maps.Map.getMap(mapElement, {
+  // マップの初期位置を表示する (座標は日本の中心あたりを適当に)
     camera: {
       latLng: {
         lat: 33.59212165093855,
@@ -75,76 +78,37 @@ document.addEventListener('deviceready', function() {
   
   // マップが初期表示できる状態になったら何かする場合はこのように設定する
   map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
-    /*// 現在位置の取得を試みる
-    LocationService.getMyLocation()
-      .then(function(location) {
-      // 現在位置が取得できた
-      var msg = ["Current your location:\n",
-        "latitude:" + location.latLng.lat,
-        "longitude:" + location.latLng.lng,
-        "speed:" + location.speed,
-        "time:" + location.time,
-        "bearing:" + location.bearing].join("\n"); 
-
-      // マーカーを追加
-      var marker = map.addMarker({
-        'position': location.latLng,
-        'title': msg
-      });
-
-      // カメラの位置を移動する
-      map.animateCamera({
-        target: location.latLng,
-        zoom: 16
-      });
-
-      // 情報ウィンドウを表示する
-      marker.showInfoWindow();
-    })
-    .catch(function(error) {
-      // 位置情報が取得できなかったとき
-      alert(JSON.stringify(error));
-    });*/
   });
 
+  var option = {
+    enableHighAccuracy: true
+  };
+  plugin.google.maps.LocationService.getMyLocation(option, function(location) {
   
-}, false);
-
-var div = document.getElementById("map");
-var map = plugin.google.maps.Map.getMap(div);
-var button = div.getElementsByTagName('button')[0];
-button.addEventListener('click', function() {
-  // 現在位置の取得を試みる
-  console.log('クリックされました！');
-  LocationService.getMyLocation()
-    .then(function(location) {
-      // 現在位置が取得できた
-      var msg = ["Current your location:\n",
-        "latitude:" + location.latLng.lat,
-        "longitude:" + location.latLng.lng,
-        "speed:" + location.speed,
-        "time:" + location.time,
-        "bearing:" + location.bearing].join("\n");
-
-      // マーカーを追加
-      var marker = map.addMarker({
-        'position': location.latLng,
-        'title': msg
-      });
-
-      // カメラの位置を移動する
-      map.animateCamera({
+    // Create a map with the device location
+    var mapDiv = document.getElementById('map');
+    var map = plugin.google.maps.Map.getMap(mapDiv, {
+      'camera': {
         target: location.latLng,
         zoom: 16
-      });
-
-      // 情報ウィンドウを表示する
-      marker.showInfoWindow();
-    })
-    .catch(function(error) {
-      // 位置情報が取得できなかったとき
-      alert(JSON.stringify(error));
+      }
     });
-});
+  
+    // 現在地のマーカーを追加
+    var marker = map.addMarker({
+      position: location.latLng,
+      icon: 'blue'
+    });
+    marker.showInfoWindow();
+
+    // カメラの位置を移動する
+    map.animateCamera({
+      target: location.latLng,
+      zoom: 16
+    });
+
+  });
+  
+}, false);
 
 app.initialize();
