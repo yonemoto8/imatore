@@ -28,7 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="script-src &apos;self&apos; https://maps.googleapis.com https://maps.gstatic.com; object-src &apos;self&apos;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -36,15 +36,17 @@
         <title>イマトレ</title>
     </head>
     <body>
-        <!--<div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Readytestetsetset</p>
-            </div>
-        </div>-->
+        <div id="info" style="height:22px">
+            <button data-tran-target="login">ログイン</button>
+            <button style="float:right">ボタン</button>
+        </div>
         <div id="map" style="width:90%;height:90%"></div>
-        <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-    </body>
+<script type="text/javascript" src="cordova.js"></script>
+<!--ここから-->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+<script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
+<script type="text/javascript" src="js/common.js"></script>
+<!--ここまで-->
+<script type="text/javascript" src="js/index.js"></script>
+</body>
 </html>

@@ -50,11 +50,11 @@ document.addEventListener('deviceready', function() {
   // 対象の DOM 要素に Google マップを配置する
   var mapElement = document.getElementById('map');
 
-  // ブラウザでGoogleMapを正常に表示させるにはAPIキーをここで設定する必要がある
-  plugin.google.maps.environment.setEnv({
+  // ブラウザでGoogleMapを正常に表示させるにはAPIキーをここで設定する必要がある（無料枠を使用していたので、一時的にコメントアウト）
+  /*plugin.google.maps.environment.setEnv({
     'API_KEY_FOR_BROWSER_RELEASE':'',
     'API_KEY_FOR_BROWSER_DEBUG':'AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU'
-  });
+  });*/
 
   map = plugin.google.maps.Map.getMap(mapElement, {
   // マップの初期位置を表示する (座標は日本の中心あたりを適当に)
@@ -73,8 +73,6 @@ document.addEventListener('deviceready', function() {
       lng: 130.40406964060062
     }
   });
-
-
   
   // マップが初期表示できる状態になったら何かする場合はこのように設定する
   map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
@@ -112,3 +110,19 @@ document.addEventListener('deviceready', function() {
 }, false);
 
 app.initialize();
+
+var personal = {
+  /** コンストラクタ  */
+  initialize: function () {
+      // TODO 必要に応じてイベント定義
+  },
+
+  /** s0003遷移前イベント  */
+  beforeTranS0003: function (event) {
+      if (confirm("次の画面に遷移します。")){
+          return true;
+      }
+      return false;
+  }
+};
+personal.initialize();
