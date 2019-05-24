@@ -32,7 +32,7 @@
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/chat.css">
         <title>イマトレ</title>
     </head>
     <body>
@@ -43,23 +43,42 @@
                 <p class="event received">Device is Readytestetsetset</p>
             </div>
         </div>-->
-        <div>ログイン画面</div>
+        <div>チャット画面</div>
         <div id="info" style="height:22px">
-            <button data-tran-target>キャンセル</button>
-            <button data-tran-target="chat" style="float:right">チャット</button>
+            <button data-tran-target="login">ログイン</button>
+            <button data-tran-target="index" style="float:right">マップ</button>
         </div>
-        <div class="login">
-            <h1>ログイン</h1>
-            <form method="post" action="">
-                <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-                <p><input type="password" name="password" value="" placeholder="Password"></p>
-                <p class="submit"><input type="submit" name="commit" value="Login"></p>
-            </form>
+        <div id="chat">
+            <div id="receive">
+                <!--メッセージ１（左側）-->
+                <div class="rc_message rc_left">
+                    <div class="rc_message_box">
+                        <div class="rc_message_content">
+                            <div class="rc_message_text">受信側テキストTEST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rc_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+    
+                <!--メッセージ２（右側）-->
+                <div class="rc_message rc_right">
+                    <div class="rc_message_box">
+                        <div class="rc_message_content">
+                            <div class="rc_message_text">送信側テキストTEST</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rc_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
+            </div>
+            <div id="send">
+                <textarea type="text" id="send-text"></textarea>
+                <button id="send-button">送信</button>
+            </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
         <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
     </body>
 </html>
