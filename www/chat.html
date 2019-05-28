@@ -45,8 +45,12 @@
         </div>-->
         <div>チャット画面</div>
         <div id="info" style="height:22px">
+            <a href="login.html">ログイン</a>
+            <a href="index.html" style="float:right">マップ</a>
+            <!--
             <button data-tran-target="login">ログイン</button>
             <button data-tran-target="index" style="float:right">マップ</button>
+            -->
         </div>
         <div id="chat">
             <div id="receive">
@@ -55,6 +59,9 @@
                     <div class="rc_message_box">
                         <div class="rc_message_content">
                             <div class="rc_message_text">受信側テキストTEST</div>
+                        </div>
+                        <div class="rc_message_stetas">
+                                <div class="rc_message_stetastext rc_left">2019/XX/XX YY:YY</div>
                         </div>
                     </div>
                 </div>
@@ -66,6 +73,9 @@
                         <div class="rc_message_content">
                             <div class="rc_message_text">送信側テキストTEST</div>
                         </div>
+                        <div class="rc_message_stetas">
+                                <div class="rc_message_stetastext rc_right">2019/XX/XX YY:YY</div>
+                        </div>
                     </div>
                 </div>
                 <div class="rc_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
@@ -76,9 +86,9 @@
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
+        <!--<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
         <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>-->
         <script type="text/javascript" src="js/chat.js"></script>
     </body>
 </html>

@@ -12,6 +12,9 @@
     },
     "cordova-plugin-googlemaps": {
       "PACKAGE_NAME": "com.example.imatore"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.example.imatore"
     }
   },
   "dependent_plugins": {}

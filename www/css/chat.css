@@ -6,7 +6,8 @@
 
 #receive{
     overflow: auto;
-    height:100%;
+    height: 100%;
+    width: 100%;
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
     background-color: #eee;
@@ -29,6 +30,11 @@
 
 .rc_message_content{
     padding: 20px;
+}
+
+.rc_message_stetastext{
+    color: #aaa;
+    padding: 2px;
 }
 
 .rc_left {
