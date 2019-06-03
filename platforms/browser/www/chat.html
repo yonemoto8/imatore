@@ -28,7 +28,8 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src gap: 'unsafe-inline' *">
+        <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -53,42 +54,32 @@
             -->
         </div>
         <div id="chat">
+            <!--ヘッダー部分-->
+            <div id="rc_chat_header">
+                <div id="rc_chat_user_status">
+                    <div id="rc_chat_user_name">ユーザー名</div>
+                </div>
+            </div>
             <div id="receive">
-                <!--メッセージ１（左側）-->
-                <div class="rc_message rc_left">
-                    <div class="rc_message_box">
-                        <div class="rc_message_content">
-                            <div class="rc_message_text">受信側テキストTEST</div>
-                        </div>
-                        <div class="rc_message_stetas">
-                                <div class="rc_message_stetastext rc_left">2019/XX/XX YY:YY</div>
-                        </div>
-                    </div>
+                <div id="rc_chatarea">
+                    <!-- javascriptで自動入力 -->
                 </div>
-                <div class="rc_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
-    
-                <!--メッセージ２（右側）-->
-                <div class="rc_message rc_right">
-                    <div class="rc_message_box">
-                        <div class="rc_message_content">
-                            <div class="rc_message_text">送信側テキストTEST</div>
-                        </div>
-                        <div class="rc_message_stetas">
-                                <div class="rc_message_stetastext rc_right">2019/XX/XX YY:YY</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="rc_clear"></div><!-- 回り込みを解除（スタイルはcssで充てる） -->
             </div>
             <div id="send">
-                <textarea type="text" id="send-text"></textarea>
-                <button id="send-button">送信</button>
+                <form id="sendchat">
+                    <input name="textBox1" type="text" id="send_text" value="" />
+                    <input type="button" id="send_button" value="送信" />
+                </form>
             </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <!--<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
         <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
         <script type="text/javascript" src="js/common.js"></script>-->
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
         <script type="text/javascript" src="js/chat.js"></script>
+        
     </body>
 </html>
