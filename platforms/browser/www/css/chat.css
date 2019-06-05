@@ -23,6 +23,26 @@
     float: left;
 }
 
+#log_clean {
+    width: 60px;
+    height: 34px;
+    font-size: 10px;
+    line-height: 3em;
+    float: right;
+    color: #fff;
+    font-weight: bold;
+    background: #bcbcbc;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#log_clean:hover {
+    background: #13178E;
+    cursor: pointer;
+}
+
 #rc_chat_user_name {
     line-height: 2em;
     padding-left: 8px;
@@ -44,6 +64,11 @@
 
 .rc_message_content{
     padding: 20px;
+}
+
+.rc_message_text{
+    word-wrap : break-word;
+    overflow-wrap : break-word;
 }
 
 .rc_message_stetastext{

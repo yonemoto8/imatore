@@ -1,17 +1,33 @@
+$.cookie.json = true;
+let chatlog = [];
+
+// チャット画面遷移時、チャットのログを表示させる
 $(document).ready(function(){
-    getMesseage();
+
+    dispLogMesseage();
+
+    if($.cookie("chatlog").length > 0){
+        chatlog = $.cookie("chatlog");
+    }
+
 });
 
 var button = document.getElementById("send_button");
-$.cookie.json = true;
 button.addEventListener("click", function() {
 
     sendMesseage();
 
 });
 
+// モック用cookieのクリアボタン
+var c_button = document.getElementById("log_clean");
+c_button.addEventListener("click", function() {
+
+    $.cookie("chatlog",[]);
+
+});
+
 function sendMesseage(){
-    console.log('sendMesseage START');
 
     /*var options = {
         exclusive: false,
@@ -63,35 +79,43 @@ function sendMesseage(){
     */
     if(document.forms.sendchat.send_text.value === ""){
     }else{
+        // 現在の時間を整形して取得
         var nt = getTime();
         let send_message = {text: document.forms.sendchat.send_text.value, stetas: 'send', time: nt};
-
-        //$.cookie("chatlog" , document.forms.sendchat.send_text.value);
-        $.cookie("chat" , send_message);
+        $.cookie("chat",send_message);
         dispMesseage();
-        let chatlog = Object.assign(chatlog,send_message);
+
+        if(chatlog.length > 0){
+            chatlog.push(send_message);
+        }else{
+            chatlog[0] = send_message;
+        }
         $.cookie("chatlog",chatlog);
-        console.log($.cooki("chatlog"));
     }
     getMesseage();
     document.forms.sendchat.send_text.value = "";
-    //$.cookie("chat" , "");
 }
 
 function getMesseage(){
-    console.log('getMesseage START');
 
     // モック用、送信されたメッセージをそのまま受信した設定で表示
+    // 現在の時間を整形して取得
     var nt = getTime();
     let get_message = {text: document.forms.sendchat.send_text.value, stetas: 'get', time: nt};
     $.cookie("chat" , get_message);
 
     dispMesseage();
 
+    if(chatlog.length > 0){
+        chatlog.push(get_message);
+    }else{
+        chatlog[0] = get_message;
+    }
+    $.cookie("chatlog",chatlog);
+
 }
 
 function dispMesseage(){
-    console.log('dispMesseage START');
 
     var rc_chatarea_text = document.getElementById('rc_chatarea');
     let c_message = $.cookie("chat");
@@ -115,6 +139,35 @@ function dispMesseage(){
                  `<div class="rc_clear"></div>`;
 
     rc_chatarea_text.insertAdjacentHTML('afterbegin',s_text);
+}
+
+function dispLogMesseage(){
+
+    var rc_chatarea_text = document.getElementById('rc_chatarea');
+    let log_message = $.cookie("chatlog");
+
+    for(let l_message of log_message){
+        var s_text = "";
+
+        if(l_message.stetas == "send"){
+            s_text = `<div class="rc_message rc_right">`;
+        }else{
+            s_text = `<div class="rc_message rc_left">`;
+        }
+
+        s_text = s_text + `<div class="rc_message_box">` +
+                     `<div class="rc_message_content">` +
+                     `<div class="rc_message_text">` + l_message.text + `</div>` +
+                     `</div>` +
+                     `<div class="rc_message_stetas">` +
+                     `<div class="rc_message_stetastext rc_right">`+ l_message.time + `</div>` +
+                     `</div>` +
+                     `</div>` +
+                     `</div>` +
+                     `<div class="rc_clear"></div>`;
+
+        rc_chatarea_text.insertAdjacentHTML('afterbegin',s_text);
+    }
 }
 
 function getTime(){

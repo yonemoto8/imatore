@@ -83,7 +83,7 @@ document.addEventListener('deviceready', function() {
   };
   plugin.google.maps.LocationService.getMyLocation(option, function(location) {
   
-    // Create a map with the device location
+    // マップ情報を取得
     var mapDiv = document.getElementById('map');
     var map = plugin.google.maps.Map.getMap(mapDiv, {
       'camera': {
