@@ -91,8 +91,8 @@ function sendMesseage(){
             chatlog[0] = send_message;
         }
         $.cookie("chatlog",chatlog);
+        getMesseage();
     }
-    getMesseage();
     document.forms.sendchat.send_text.value = "";
 }
 

@@ -28,11 +28,12 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="default-src gap: 'unsafe-inline' *">
+        <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">-->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
-        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/marker.css">
         <title>イマトレ</title>
     </head>
     <body>
@@ -43,28 +44,39 @@
                 <p class="event received">Device is Readytestetsetset</p>
             </div>
         </div>-->
-        <div>ログイン画面</div>
+        <div>マーカー画面</div>
         <div id="info" style="height:22px">
             <a href="index.html">マップ</a>
+            <a href="login.html">ログイン</a>
             <a href="chat.html">チャット</a>
-            <a href="marker.html">マーカー</a>
             <!--
-            <button data-tran-target>キャンセル</button>
-            <button data-tran-target="chat" style="float:right">チャット</button>
+            <button data-tran-target="login">ログイン</button>
+            <button data-tran-target="index" style="float:right">マップ</button>
             -->
         </div>
-        <div class="login">
-            <h1>ログイン</h1>
-            <form method="post" action="">
-                <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-                <p><input type="password" name="password" value="" placeholder="Password"></p>
-                <p class="submit"><input type="submit" name="commit" value="Login"></p>
-            </form>
+        <div id="add_marker">
+            <div>
+                <h1>マーカー追加</h1>
+            </div>        
+            <div id="list">        
+                <select id="mark_list">
+                    <option value="130.419953_33.590089">博多駅</option>
+                    <option value="130.399040_33.589699">天神駅</option>
+                    <option value="130.400910_33.592685">GOLD'S GYM 博多福岡店</option>
+                    <option value="130.396379_33.592007">モビトレジム天神</option>
+                    <option value="130.412501_33.583536">JOYFIT24 住吉店</option>
+                    <option value="130.422219_33.582280">JOYFIT24 博多駅南店</option>
+                </select>
+            </div>
+            <input type="button" id="a_marker" value="登録" />
+            <input type="button" id="d_marker" value="削除" />
         </div>
         <script type="text/javascript" src="cordova.js"></script>
-        <!--<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
-        <script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script>
-        <script type="text/javascript" src="js/common.js"></script>-->
-        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/marker.js"></script>
+        
     </body>
 </html>
