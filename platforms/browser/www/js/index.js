@@ -51,10 +51,10 @@ document.addEventListener('deviceready', function() {
   var mapElement = document.getElementById('map');
 
   // ブラウザでGoogleMapを正常に表示させるにはAPIキーをここで設定する必要がある（無料枠を使用していたので、一時的にコメントアウト）
-  plugin.google.maps.environment.setEnv({
+  /*plugin.google.maps.environment.setEnv({
     'API_KEY_FOR_BROWSER_RELEASE':'',
     'API_KEY_FOR_BROWSER_DEBUG':'AIzaSyDRHqvc7mY20qL3f219i2fl1JQEbRXW2vU'
-  });
+  });*/
 
   map = plugin.google.maps.Map.getMap(mapElement, {
   // マップの初期位置を表示する
@@ -67,14 +67,6 @@ document.addEventListener('deviceready', function() {
     }
   });
 
-  var marker2 = map.addMarker({
-    'position': {
-      lat: 33.59202165093855,
-      lng: 130.40406964060062
-    }
-  });
-
-  
   // マップが初期表示できる状態になったら何かする場合はこのように設定する
   map.addEventListener(plugin.google.maps.event.MAP_READY, function() {
   });
@@ -106,22 +98,28 @@ document.addEventListener('deviceready', function() {
       zoom: 16
     });
 
-  });
+  let c_marker = [];
+  var date = $.cookie("marker");
+  date = date.slice(1);
+  date = date.slice(0,-1);
+  c_marker = date.split("_");
+  c_marker.map(Number);
 
-  var c_marker = $.cookie("marker");
+  console.log(c_marker);
 
-  if(c_marker == ""){
-  }else{
-    console.log(c_marker);
-    var marker3 = map.addMarker({
-      'position': {
-        lat: c_marker["0"],
-        lng: c_marker["1"]
-        //lat: 33.589699,
-        //lng: 130.399040
-      }
-    });
+  if(c_marker.length > 0 ){
+    for(var x = 0,len = c_marker.length; x < len;){
+      var marker2 = map.addMarker({
+        'position': {
+          lat: c_marker[x + 1],
+          lng: c_marker[x]
+        }
+      });
+      x += 2;
+    }
   }
+
+});
   
 }, false);
 

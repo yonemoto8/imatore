@@ -30,15 +30,12 @@ common.initialize();
 
 function setCookie(c_name, set_date){
 
-    console.log("start setCookie");
-    
     $.cookie(c_name, set_date);
 
 }
 
 function removeCookie(c_name){
-    
-    console.log("start removeCookie");
 
     $.cookie(c_name,"");
+    
 }
