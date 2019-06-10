@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src gap: 'unsafe-inline' *">
+        <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/marker.css">
+        <title>イマトレ</title>
+    </head>
+    <body>
+        <!--<div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Readytestetsetset</p>
+            </div>
+        </div>-->
+        <div>マーカー画面</div>
+        <div id="info" style="height:22px">
+            <a href="index.html">マップ</a>
+            <a href="login.html">ログイン</a>
+            <a href="chat.html">チャット</a>
+            <!--
+            <button data-tran-target="login">ログイン</button>
+            <button data-tran-target="index" style="float:right">マップ</button>
+            -->
+        </div>
+        <div id="add_marker">
+            <div>
+                <h1>マーカー追加</h1>
+            </div>        
+            <div id="list">        
+                <select id="mark_list">
+                    <option value="130.420453_33.589889">博多駅</option>
+                    <option value="130.399011_33.591289">天神駅</option>
+                    <option value="130.400910_33.592685">GOLD'S GYM 博多福岡店</option>
+                    <option value="130.396379_33.592007">モビトレジム天神</option>
+                    <option value="130.412351_33.583656">JOYFIT24 住吉店</option>
+                    <option value="130.422219_33.582280">JOYFIT24 博多駅南店</option>
+                </select>
+            </div>
+            <input type="button" id="a_marker" value="登録" />
+            <input type="button" id="d_marker" value="削除" />
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/common.js"></script>
+        <script type="text/javascript" src="js/marker.js"></script>
+        
+    </body>
+</html>

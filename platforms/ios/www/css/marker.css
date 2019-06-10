@@ -1,0 +1,49 @@
+#add_marker {
+    height: 600px;
+    width: 100%;
+}
+
+#mark_list {
+    width: 320px;
+    font-size: 14px;
+}
+
+#a_marker {
+    width: 60px;
+    height: 34px;
+    font-size: 10px;
+    line-height: 3em;
+    color: #fff;
+    font-weight: bold;
+    background: #bcbcbc;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+#a_marker:hover {
+    background: #13178E;
+    cursor: pointer;
+}
+
+#d_marker {
+    width: 60px;
+    height: 34px;
+    font-size: 10px;
+    line-height: 3em;
+    color: #fff;
+    font-weight: bold;
+    background: #bcbcbc;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin: 5px;
+}
+
+#d_marker:hover {
+    background: #13178E;
+    cursor: pointer;
+}

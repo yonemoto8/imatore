@@ -1,23 +1,49 @@
-<!--
-#
-# Licensed to the Apache Software Foundation (ASF) under one
-# or more contributor license agreements.  See the NOTICE file
-# distributed with this work for additional information
-# regarding copyright ownership.  The ASF licenses this file
-# to you under the Apache License, Version 2.0 (the
-# "License"); you may not use this file except in compliance
-# with the License.  You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing,
-# software distributed under the License is distributed on an
-# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-#  KIND, either express or implied.  See the License for the
-# specific language governing permissions and limitations
-# under the License.
-#
--->
-# Cordova Hooks
+# イマトレ（仮）
 
-Cordova Hooks represent special scripts which could be added by application and plugin developers or even by your own build system  to customize cordova commands. See Hooks Guide for more details:  http://cordova.apache.org/docs/en/edge/guide_appdev_hooks_index.md.html#Hooks%20Guide.
+## 概要
+
+トレーナーとユーザーをマッチングさせるアプリ。
+現在地を中心にトレーナーを探す事が出来るマップ画面、
+トレーナーとチャットをしてマッチングする事が出来るチャット画面、
+トレーナーがマーカーを立てる事が出来るマーカー追加画面などがある。
+
+## 実行環境
+
+macOS Mojave (version:10.14.5)
+
+## 前提
+
+- コンソールが実行できること
+
+## 手順
+
+### Ster 1: Node.jsのダウンロード
+
+https://nodejs.org/ よりダウンロード。
+
+### Ster 2: Cordovaのインストール
+
+以下のコマンドを入力する。
+
+```
+$> npm install -g cordova
+```
+
+（場合によって「sudo npm install -g cordova」と入力する必要アリ）
+
+### Ster 3: cdコマンドでcloneしたフォルダに移動する
+
+### Ster 4: イマトレ起動確認（ブラウザ編）
+
+```
+$> cordova run browser
+```
+
+### Ster 5: イマトレ起動確認（ios編）
+
+現在資料作成中。
+
+## 最後に
+Windows環境は動作確認を行なっておりません。
+ご了承ください。
+

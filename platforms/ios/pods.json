@@ -1,0 +1,12 @@
+{
+    "declarations": {},
+    "sources": {},
+    "libraries": {
+        "GoogleMaps": {
+            "name": "GoogleMaps",
+            "type": "podspec",
+            "spec": "~> 3.1.0",
+            "count": 1
+        }
+    }
+}

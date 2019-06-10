@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src gap: 'unsafe-inline' *">
+        <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/chat.css">
+        <title>イマトレ</title>
+    </head>
+    <body>
+        <!--<div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Readytestetsetset</p>
+            </div>
+        </div>-->
+        <div>チャット画面</div>
+        <div id="info" style="height:22px">
+            <a href="index.html">マップ</a>
+            <a href="login.html">ログイン</a>
+            <a href="marker.html">マーカー</a>
+            <!--
+            <button data-tran-target="login">ログイン</button>
+            <button data-tran-target="index" style="float:right">マップ</button>
+            -->
+        </div>
+        <div id="chat">
+            <!--ヘッダー部分-->
+            <div id="rc_chat_header">
+                <div id="rc_chat_user_status">
+                    <div id="rc_chat_user_name">ユーザー名</div>
+                </div>
+                <input type="button" id="log_clean" value="クリア" />
+            </div>
+            <div id="receive">
+                <div id="rc_chatarea">
+                    <!-- javascriptで自動入力 -->
+                </div>
+            </div>
+            <div id="send">
+                <form id="sendchat">
+                    <input name="textBox1" type="text" id="send_text" value="" />
+                    <input type="button" id="send_button" value="送信" />
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
+        
+    </body>
+</html>
