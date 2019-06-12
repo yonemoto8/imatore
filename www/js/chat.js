@@ -138,7 +138,9 @@ function dispMesseage(){
                  `</div>` +
                  `<div class="rc_clear"></div>`;
 
-    rc_chatarea_text.insertAdjacentHTML('afterbegin',s_text);
+    rc_chatarea_text.insertAdjacentHTML('beforeend',s_text);
+    $("#receive").scrollTop($("#receive")[0].scrollHeight);
+    document.getElementById('send_button').style.backgroundColor = '#bcbcbc';
 }
 
 function dispLogMesseage(){
@@ -166,8 +168,10 @@ function dispLogMesseage(){
                      `</div>` +
                      `<div class="rc_clear"></div>`;
 
-        rc_chatarea_text.insertAdjacentHTML('afterbegin',s_text);
+        rc_chatarea_text.insertAdjacentHTML('beforeend',s_text);
     }
+    $("#receive").scrollTop($("#receive")[0].scrollHeight);
+    document.getElementById('send_button').style.backgroundColor = '#bcbcbc';
 }
 
 function getTime(){
@@ -180,4 +184,12 @@ function getTime(){
     var s = ("00" + dt.getSeconds()).slice(-2);
     var result = y + "/" + m + "/" + d + " " + h + ":" + mi + ":" + s;
     return result;
+}
+
+function b_hover(text){
+    if(text.length < 1){
+        document.getElementById('send_button').style.backgroundColor = '#bcbcbc';
+    }else{
+        document.getElementById('send_button').style.backgroundColor = '#13178E';
+    }
 }

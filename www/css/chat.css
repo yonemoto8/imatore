@@ -137,7 +137,7 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-#send_button:hover {
+.hovered{
     background: #13178E;
     cursor: pointer;
 }
