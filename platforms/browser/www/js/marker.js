@@ -24,6 +24,6 @@ button.addEventListener("click", function() {
 
     removeCookie("marker");
     alert("保存しているマーカーを全て削除しました。");
-
+    
 });
 

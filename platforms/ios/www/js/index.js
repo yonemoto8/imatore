@@ -84,6 +84,7 @@ document.addEventListener('deviceready', function() {
         zoom: 16
       }
     });
+    console.log(location.latLng);
   
     // 現在地のマーカーを追加
     var marker = map.addMarker({
@@ -98,28 +99,26 @@ document.addEventListener('deviceready', function() {
       zoom: 16
     });
 
-  let c_marker = [];
-  var date = $.cookie("marker");
-  date = date.slice(1);
-  date = date.slice(0,-1);
-  c_marker = date.split("_");
-  c_marker.map(Number);
+    let c_marker = [];
+    var date = $.cookie("marker");
+    date = date.slice(1);
+    date = date.slice(0,-1);
+    c_marker = date.split("_");
+    c_marker.map(Number);
 
-  console.log(c_marker);
-
-  if(c_marker.length > 0 ){
-    for(var x = 0,len = c_marker.length; x < len;){
-      var marker2 = map.addMarker({
-        'position': {
-          lat: c_marker[x + 1],
-          lng: c_marker[x]
-        }
-      });
-      x += 2;
+    if(c_marker.length > 0 ){
+      for(var x = 0,len = c_marker.length; x < len;){
+        var marker2 = map.addMarker({
+          'position': {
+           lat: c_marker[x + 1],
+            lng: c_marker[x]
+          }
+        });
+        x += 2;
+      }
     }
-  }
 
-});
+  });
   
 }, false);
 

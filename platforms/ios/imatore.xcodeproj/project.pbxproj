@@ -55,6 +55,8 @@
 		AA5039FD3A854D2292A0B70A /* pgm_Localizable_pl.json in Resources */ = {isa = PBXBuildFile; fileRef = 92A6B861FEF04F13B0F1D6FB /* pgm_Localizable_pl.json */; };
 		31D886D1FE8E4F2D8711F256 /* pgm_Localizable_da.json in Resources */ = {isa = PBXBuildFile; fileRef = 00B7E78F86ED4AC89ACA5287 /* pgm_Localizable_da.json */; };
 		0060D3882994419B95D4932B /* pgm_Localizable_vi.json in Resources */ = {isa = PBXBuildFile; fileRef = 3297543454CD41E5BBB50539 /* pgm_Localizable_vi.json */; };
+		17CA36BBD4B147C8B44138A8 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 089578371EB742B0A5F64ECD /* CDVLocation.m */; };
+		9FAFACFF32A0426C9FB7E750 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28504E6F299E40B089F8476B /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +176,9 @@
 		92A6B861FEF04F13B0F1D6FB /* pgm_Localizable_pl.json */ = {isa = PBXFileReference; name = "pgm_Localizable_pl.json"; path = "pgm_Localizable_pl.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		00B7E78F86ED4AC89ACA5287 /* pgm_Localizable_da.json */ = {isa = PBXFileReference; name = "pgm_Localizable_da.json"; path = "pgm_Localizable_da.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		3297543454CD41E5BBB50539 /* pgm_Localizable_vi.json */ = {isa = PBXFileReference; name = "pgm_Localizable_vi.json"; path = "pgm_Localizable_vi.json"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		089578371EB742B0A5F64ECD /* CDVLocation.m */ = {isa = PBXFileReference; name = "CDVLocation.m"; path = "cordova-plugin-geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		2C5885EFD2A045C997CAFF9F /* CDVLocation.h */ = {isa = PBXFileReference; name = "CDVLocation.h"; path = "cordova-plugin-geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		28504E6F299E40B089F8476B /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
+				9FAFACFF32A0426C9FB7E750 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +272,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				28504E6F299E40B089F8476B /* CoreLocation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -350,6 +357,8 @@
 				C337E5FC5329424D96EE5AEB /* PluginViewController.h */,
 				F7365C801EDE4B56AD02FD94 /* IPluginView.h */,
 				893A43F08FEB455BBDE42514 /* IPluginProtocol.h */,
+				089578371EB742B0A5F64ECD /* CDVLocation.m */,
+				2C5885EFD2A045C997CAFF9F /* CDVLocation.h */,
 			);
 			name = Plugins;
 			path = "imatore/Plugins";
@@ -516,6 +525,7 @@
 				B68AFF37864C44FD8293462B /* PluginStreetViewPanorama.m in Sources */,
 				04474A0DB805450EB2683C4F /* PluginStreetViewPanoramaController.m in Sources */,
 				5EEBFE18836D4DAE887B15DF /* PluginViewController.m in Sources */,
+				17CA36BBD4B147C8B44138A8 /* CDVLocation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 #chat{
-    height: 600px;
+    height: 500px;
     width: 100%;
     background-color: #eee;
 }
@@ -63,7 +63,7 @@
 }
 
 .rc_message_content{
-    padding: 20px;
+    padding: 10px;
 }
 
 .rc_message_text{
@@ -137,7 +137,7 @@
     border-radius: 4px;
     box-sizing: border-box;
 }
-#send_button:hover {
+.hovered{
     background: #13178E;
     cursor: pointer;
 }

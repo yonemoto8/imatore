@@ -187,7 +187,6 @@ function getTime(){
 }
 
 function b_hover(text){
-    console.log(text.length);
     if(text.length < 1){
         document.getElementById('send_button').style.backgroundColor = '#bcbcbc';
     }else{

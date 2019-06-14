@@ -28,6 +28,7 @@
             * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
+        <meta charset="UTF-8">
         <meta http-equiv="Content-Security-Policy" content="default-src gap: 'unsafe-inline' *">
         <!--<meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">-->
         <meta name="format-detection" content="telephone=no">
@@ -69,7 +70,7 @@
             </div>
             <div id="send">
                 <form id="sendchat">
-                    <input name="textBox1" type="text" id="send_text" value="" />
+                    <input name="textBox1" type="text" id="send_text" value="" onkeyup="b_hover(this.value)"/>
                     <input type="button" id="send_button" value="送信" />
                 </form>
             </div>

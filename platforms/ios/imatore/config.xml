@@ -67,6 +67,9 @@
     <feature name="PluginStreetViewPanorama">
         <param name="ios-package" value="PluginStreetViewPanorama" />
     </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
     <name>imatore</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
