@@ -119,7 +119,6 @@ document.addEventListener('deviceready', function() {
     let t = [];
     getPostionInfo().then((value) => {
       t = value;
-      //return value;
     });
     setTimeout(function () {
       // 確認用

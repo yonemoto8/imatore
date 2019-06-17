@@ -4,7 +4,7 @@ let chatlog = [];
 // チャット画面遷移時、チャットのログを表示させる
 $(document).ready(function(){
 
-    dispLogMesseage();
+    dispLogMessage();
 
     if($.cookie("chatlog").length > 0){
         chatlog = $.cookie("chatlog");
@@ -15,9 +15,18 @@ $(document).ready(function(){
 var button = document.getElementById("send_button");
 button.addEventListener("click", function() {
 
-    sendMesseage();
+    sendMessage();
 
 });
+
+$('#send_text').keypress(function(e){
+    if(e.which == 13){
+        sendMessage();
+        // スマホのキーボードを閉じる
+        $("#send_text").blur();
+        return false;
+    }
+})
 
 // モック用cookieのクリアボタン
 var c_button = document.getElementById("log_clean");
@@ -27,7 +36,7 @@ c_button.addEventListener("click", function() {
 
 });
 
-function sendMesseage(){
+function sendMessage(){
 
     /*var options = {
         exclusive: false,
@@ -83,7 +92,7 @@ function sendMesseage(){
         var nt = getTime();
         let send_message = {text: document.forms.sendchat.send_text.value, stetas: 'send', time: nt};
         $.cookie("chat",send_message);
-        dispMesseage();
+        dispMessage();
 
         if(chatlog.length > 0){
             chatlog.push(send_message);
@@ -91,12 +100,12 @@ function sendMesseage(){
             chatlog[0] = send_message;
         }
         $.cookie("chatlog",chatlog);
-        getMesseage();
+        getMessage();
     }
     document.forms.sendchat.send_text.value = "";
 }
 
-function getMesseage(){
+function getMessage(){
 
     // モック用、送信されたメッセージをそのまま受信した設定で表示
     // 現在の時間を整形して取得
@@ -104,7 +113,7 @@ function getMesseage(){
     let get_message = {text: document.forms.sendchat.send_text.value, stetas: 'get', time: nt};
     $.cookie("chat" , get_message);
 
-    dispMesseage();
+    dispMessage();
 
     if(chatlog.length > 0){
         chatlog.push(get_message);
@@ -115,7 +124,7 @@ function getMesseage(){
 
 }
 
-function dispMesseage(){
+function dispMessage(){
 
     var rc_chatarea_text = document.getElementById('rc_chatarea');
     let c_message = $.cookie("chat");
@@ -143,7 +152,7 @@ function dispMesseage(){
     document.getElementById('send_button').style.backgroundColor = '#bcbcbc';
 }
 
-function dispLogMesseage(){
+function dispLogMessage(){
 
     var rc_chatarea_text = document.getElementById('rc_chatarea');
     let log_message = $.cookie("chatlog");
