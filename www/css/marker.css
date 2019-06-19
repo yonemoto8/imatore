@@ -1,10 +1,38 @@
 #add_marker {
-    height: 600px;
+    height: 100%;
     width: 100%;
 }
 
 #mark_list {
     width: 320px;
+    font-size: 14px;
+}
+
+#tr_time_list {
+    margin-top: 10px;
+}
+
+#f_time_h_list {
+    font-size: 14px;
+}
+
+#f_time_m_list {
+    font-size: 14px;
+}
+
+#t_time_h_list {
+    font-size: 14px;
+}
+
+#t_time_m_list {
+    font-size: 14px;
+}
+
+#fee_list {
+    margin: 10px 0px;
+}
+
+#f_list {
     font-size: 14px;
 }
 

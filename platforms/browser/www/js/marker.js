@@ -13,8 +13,8 @@ button.addEventListener("click", function(bt) {
         }else{
             m_log = m_log + "_" + date;
         }
+        setCookie("marker",m_log);
     }
-    setCookie("marker",m_log);
 
     document.location = "index.html";
 });
