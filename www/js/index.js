@@ -107,7 +107,7 @@ document.addEventListener('deviceready', function() {
       for(var x = 0,len = c_marker.length; x < len;){
         var marker2 = map.addMarker({
           'position': {
-           lat: c_marker[x + 1],
+            lat: c_marker[x + 1],
             lng: c_marker[x]
           }
         });
