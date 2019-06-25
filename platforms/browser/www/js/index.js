@@ -98,22 +98,59 @@ document.addEventListener('deviceready', function() {
       zoom: 16
     });
 
+    //console.log(location.latLng);
+
+    // cookieに保存したマーカーを表示 start
     let c_marker = [];
     var date = $.cookie("marker");
     c_marker = date.split("_");
     c_marker.map(Number);
 
+    // 現在地の緯度経度を変数に設定
+    var lat1 = location.latLng.lat * Math.PI / 180;
+    var lng1 = location.latLng.lng * Math.PI / 180;
+
     if(c_marker.length > 0 ){
       for(var x = 0,len = c_marker.length; x < len;){
-        var marker2 = map.addMarker({
-          'position': {
-            lat: c_marker[x + 1],
-            lng: c_marker[x]
-          }
-        });
+    
+        var lat2 = c_marker[x + 1] * Math.PI / 180;
+        var lng2 = c_marker[x] * Math.PI / 180;
+        
+        /*lat1 *= Math.PI / 180;
+        lng1 *= Math.PI / 180;
+        lat2 *= Math.PI / 180;
+        lng2 *= Math.PI / 180;*/
+        
+        //var distance = 6371 * Math.acos(Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) + Math.sin(lat1) * Math.sin(lat2));
+        var lat_c = (lat1 + lat2) / 2;					// 緯度の中心値
+	      var dx = 6371 * (lng2 - lng1) * Math.cos(lat_c);
+        var dy = 6371 * (lat2 - lat1);
+        var distance = (dx * dx) + (dy * dy);
+        console.log(distance);
+
+        if(distance < 1){
+          var marker2 = map.addMarker({
+            'position': {
+              lat: c_marker[x + 1],
+              lng: c_marker[x]
+            }
+          });
+        }
         x += 2;
       }
     }
+    // cookieに保存したマーカーを表示 end
+
+    /* // stubに保存されているマーカー情報を取得し、マーカーを表示 start
+    var t = "";
+    var url = "https://crebo.co.jp/crebo-demo/www/stub/markergetstub.json";
+    getjson(url).then((value) => {
+        t = value;
+    });
+    setTimeout(function () {
+        
+    }, 2000);
+    // stubに保存されているマーカー情報を取得し、マーカーを表示 end*/
     
     // 緯度経度を取得する共通メソッド（呼び出し部分）
     let t = [];
