@@ -98,8 +98,6 @@ document.addEventListener('deviceready', function() {
       zoom: 16
     });
 
-    //console.log(location.latLng);
-
     // cookieに保存したマーカーを表示 start
     let c_marker = [];
     var date = $.cookie("marker");
@@ -116,13 +114,7 @@ document.addEventListener('deviceready', function() {
         var lat2 = c_marker[x + 1] * Math.PI / 180;
         var lng2 = c_marker[x] * Math.PI / 180;
         
-        /*lat1 *= Math.PI / 180;
-        lng1 *= Math.PI / 180;
-        lat2 *= Math.PI / 180;
-        lng2 *= Math.PI / 180;*/
-        
-        //var distance = 6371 * Math.acos(Math.cos(lat1) * Math.cos(lat2) * Math.cos(lng2 - lng1) + Math.sin(lat1) * Math.sin(lat2));
-        var lat_c = (lat1 + lat2) / 2;					// 緯度の中心値
+        var lat_c = (lat1 + lat2) / 2;	// 緯度の中心値
 	      var dx = 6371 * (lng2 - lng1) * Math.cos(lat_c);
         var dy = 6371 * (lat2 - lat1);
         var distance = (dx * dx) + (dy * dy);
@@ -141,16 +133,27 @@ document.addEventListener('deviceready', function() {
     }
     // cookieに保存したマーカーを表示 end
 
-    /* // stubに保存されているマーカー情報を取得し、マーカーを表示 start
-    var t = "";
+     // stubに保存されているマーカー情報を取得し、マーカーを表示 start
+    let stub_date = [];
     var url = "https://crebo.co.jp/crebo-demo/www/stub/markergetstub.json";
     getjson(url).then((value) => {
-        t = value;
+      stub_date = value;
     });
     setTimeout(function () {
-        
-    }, 2000);
-    // stubに保存されているマーカー情報を取得し、マーカーを表示 end*/
+      for(var x = 0,len = stub_date.length; x < len; x++){
+        var marker3 = map.addMarker({
+          'position': {
+            lat: stub_date[x].lat,
+            lng: stub_date[x].lng
+          },
+          icon: '#00FF00'
+        });
+        marker3.showInfoWindow();
+      }
+      console.log("stub_date:"+stub_date);
+      console.log("stub_date.mapname:"+stub_date[0].mapname);
+    }, 500);
+    // stubに保存されているマーカー情報を取得し、マーカーを表示 end
     
     // 緯度経度を取得する共通メソッド（呼び出し部分）
     let t = [];

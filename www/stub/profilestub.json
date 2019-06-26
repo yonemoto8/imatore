@@ -1,8 +1,18 @@
-{
-	"userid":"123456",
-	"username":"田中　一郎",
-	"photo":"img/testphoto.png",
-	"fee":"1234",
-	"parts":"腕、腹、太もも",
-	"performance":"第29回　福岡県ルーキーズボディビル選手権　5位<br>第29回 ジャパンオープン選手権大会　7位"
-}
+[
+	{
+		"userid":"123456",
+		"username":"田中　一郎",
+		"photo":"img/testphoto.png",
+		"fee":"1234",
+		"parts":"腕、腹、太もも",
+		"performance":"第29回　福岡県ルーキーズボディビル選手権　5位<br>第29回 ジャパンオープン選手権大会　7位"
+	},
+	{
+		"userid":"1",
+		"username":"yamada kenzi",
+		"photo":"img/logo.png",
+		"fee":"1000",
+		"parts":"二の腕、腹筋",
+		"performance":"指導実績：100人"
+	}
+]

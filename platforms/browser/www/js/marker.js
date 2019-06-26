@@ -29,12 +29,12 @@ button.addEventListener("click", function(bt) {
         var fee_list = document.getElementById("f_list");
         var fee = fee_list.value;
 
-        console.log(from_time);
+        /*console.log(from_time);
         console.log(to_time);
-        console.log(fee);
+        console.log(fee);*/
 
     }
-    //document.location = "index.html";
+    document.location = "index.html";
 });
 
 var button = document.getElementById("d_marker");
