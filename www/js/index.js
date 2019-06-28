@@ -180,7 +180,7 @@ app.initialize();
 function mark_crick(mark,id){
   mark.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
     //alert("マーカーがクリックされた2");
-    setCookie("prof_id",id);
-    document.location = "profile.html";
+    //setCookie("prof_id",id);
+    document.location = "profile.html" + "?id=" + id;
   });
 }

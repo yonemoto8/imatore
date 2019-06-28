@@ -1,7 +1,11 @@
 document.addEventListener('deviceready', function() {
-    let t = [];
+    let stub_prof = [];
     var url = "https://crebo.co.jp/crebo-demo/www/stub/profilestub.json";
-    var key = $.cookie("prof_id");
+    // cookieでuseridをやり取りするならこちら
+    //var key = $.cookie("prof_id");
+    // URLでuseridをやり取りするならこちら
+    var key = getParam('id');
+
     getjson(url).then((value) => {
         stub_prof = value;
     });
@@ -28,3 +32,13 @@ document.addEventListener('deviceready', function() {
         */
     }, 80);
 }, false);
+
+function getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
