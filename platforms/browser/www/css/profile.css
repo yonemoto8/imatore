@@ -28,13 +28,13 @@ table, td {
     border: 1px solid darkgray;
 }
 
-#td_left {
+.td_left {
     width: 90px;
     text-align: right;
     vertical-align: center;
 }
 
-#td_right {
+.td_right {
     padding: 0px 3px;
     word-wrap: break-word;
     overflow-wrap: break-word;

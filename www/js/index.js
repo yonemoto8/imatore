@@ -127,13 +127,17 @@ document.addEventListener('deviceready', function() {
               lng: c_marker[x]
             }
           });
+          marker2.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
+            alert("マーカーがクリックされた2");
+        
+          });
         }
         x += 2;
       }
     }
     // cookieに保存したマーカーを表示 end
 
-     // stubに保存されているマーカー情報を取得し、マーカーを表示 start
+    // stubに保存されているマーカー情報を取得し、マーカーを表示 start
     let stub_date = [];
     var url = "https://crebo.co.jp/crebo-demo/www/stub/markergetstub.json";
     getjson(url).then((value) => {
@@ -146,12 +150,13 @@ document.addEventListener('deviceready', function() {
             lat: stub_date[x].lat,
             lng: stub_date[x].lng
           },
-          icon: '#00FF00'
+          icon: '#00FF00',
+          title: stub_date[x].userid
         });
-        marker3.showInfoWindow();
+
+        mark_crick(marker3,marker3.getTitle());
+        
       }
-      console.log("stub_date:"+stub_date);
-      console.log("stub_date.mapname:"+stub_date[0].mapname);
     }, 500);
     // stubに保存されているマーカー情報を取得し、マーカーを表示 end
     
@@ -171,3 +176,11 @@ document.addEventListener('deviceready', function() {
 }, false);
 
 app.initialize();
+
+function mark_crick(mark,id){
+  mark.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
+    //alert("マーカーがクリックされた2");
+    setCookie("prof_id",id);
+    document.location = "profile.html";
+  });
+}
