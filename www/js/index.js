@@ -108,6 +108,7 @@ document.addEventListener('deviceready', function() {
     var lat1 = location.latLng.lat * Math.PI / 180;
     var lng1 = location.latLng.lng * Math.PI / 180;
 
+    // 現在地とマーカー地点の直線距離を計算
     if(c_marker.length > 0 ){
       for(var x = 0,len = c_marker.length; x < len;){
     
@@ -118,8 +119,8 @@ document.addEventListener('deviceready', function() {
 	      var dx = 6371 * (lng2 - lng1) * Math.cos(lat_c);
         var dy = 6371 * (lat2 - lat1);
         var distance = (dx * dx) + (dy * dy);
-        console.log(distance);
 
+        // 現在地とマーカー地点の直線距離が1km以内なら表示
         if(distance < 1){
           var marker2 = map.addMarker({
             'position': {
@@ -179,8 +180,9 @@ app.initialize();
 
 function mark_crick(mark,id){
   mark.addEventListener(plugin.google.maps.event.MARKER_CLICK, function() {
-    //alert("マーカーがクリックされた2");
+    // cookieに保存するならこちらを有効化
     //setCookie("prof_id",id);
+    
     document.location = "profile.html" + "?id=" + id;
   });
 }
