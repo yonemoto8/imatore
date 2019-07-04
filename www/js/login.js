@@ -20,6 +20,23 @@ button.addEventListener("click", function() {
             getjson(url).then((value) => {
                 t = value;
             });
+            // api用
+            /*
+            setTimeout(function () {
+                if(t.status == 0){
+                    alert("ログインしました。");
+                    document.location = "index.html";
+                }else{
+                    var e_mes = "ログイン出来ませんでした。"
+                    if(t.message){
+                        e_mes = t.message;
+                    }
+                    alert(e_mes);
+                }
+            }, 80);
+            */
+            
+            // stub用
             setTimeout(function () {
                 if(l_id == t.email){
                     if(l_pass == t.password){
@@ -27,16 +44,20 @@ button.addEventListener("click", function() {
                         document.location = "index.html";
                     }else{
                         alert("ログイン出来ませんでした。");
+                        document.location = "login.html";
                     }
                 }else{
                     alert("ログイン出来ませんでした。");
+                    document.location = "login.html";
                 }
-            }, 2000);
+            }, 80);
         }else{
             alert("ログイン出来ませんでした。");
+            document.location = "login.html";
         }
     }else{
         alert("ログイン出来ませんでした。");
+        document.location = "login.html";
     }
-    alert("test");
+    //alert("test");
 });

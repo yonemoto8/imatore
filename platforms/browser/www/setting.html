@@ -29,57 +29,49 @@
                 * Enable inline JS: add 'unsafe-inline' to default-src
         -->
         <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="script-src 'self' https://maps.googleapis.com https://maps.gstatic.com; object-src 'self'">
+        <meta http-equiv="Content-Security-Policy" content="script-src &apos;self&apos; https://maps.googleapis.com https://maps.gstatic.com; object-src &apos;self&apos;">
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <link rel="stylesheet" type="text/css" href="css/common.css">
-        <link rel="stylesheet" type="text/css" href="css/login.css">
+        <link rel="stylesheet" type="text/css" href="css/setting.css">
         <title>イマトレ</title>
     </head>
     <body>
-        <div class="wrapper">
-        <!--<div class="app">
-            <h1>Apache Cordova</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Readytestetsetset</p>
+        <div class="wrapper">  
+            <div id="header">
+                <h1><a href="index.html"><img id="disp_photo" src="img/header.png" alt=""></a></h1>
             </div>
-        </div>-->
-        <div id="header">
-            <h1><a href="index.html"><img id="disp_photo" src="img/header.png" alt=""></a></h1>
-        </div>
-        <div>ログイン画面</div>
         <!--
         <div id="info" style="height:22px">
-            <a href="index.html">マップ</a>
+            <a href="login.html">ログイン</a>
             <a href="chat.html">チャット</a>
             <a href="marker.html">マーカー</a>
             <a href="profile.html">プロフィール</a>
-            <button data-tran-target>キャンセル</button>
+            <button data-tran-target="login">ログイン</button>
             <button data-tran-target="chat" style="float:right">チャット</button>
         </div>
-        -->
-        <div class="login">
-            <h1>ログイン</h1>
-            <form action="">
-                <p><input type="text" name="email" id="login_id" value="" placeholder="Username or Email"></p>
-                <p><input type="password" name="password" id="login_pass" value="" placeholder="Password"></p>
-                <p class="submit"><button type="button" name="commit" id="login_btn" value="Login">Login</button></p>
-            </form>
-        </div>
-        <div id="footer">
-            <a href="index.html"><img id="f_map" src="img/f_map.png" alt=""></a>
-            <a href="login.html"><img id="f_login" src="img/f_login.png" alt=""></a>
-            <a href="chat.html"><img id="f_chat" src="img/f_chat.png" alt=""></a>
-            <a href="marker.html"><img id="f_marker" src="img/f_marker.png" alt=""></a>
-        </div>
+            -->
+            <div id="setting">
+                <div id="change_chatname">
+                    <form id="sendchat" action="#">
+                        <input name="textBox1" type="text" id="send_text" value="" onkeyup="b_hover(this.value)"/>
+                        <input type="button" id="send_button" value="送信" />
+                    </form>
+                </div>
+            </div>
+            <div id="footer">
+                <a href="index.html"><img id="f_map" src="img/f_map.png" alt=""></a>
+                <a href="login.html"><img id="f_login" src="img/f_login.png" alt=""></a>
+                <a href="chat.html"><img id="f_chat" src="img/f_chat.png" alt=""></a>
+                <a href="marker.html"><img id="f_marker" src="img/f_marker.png" alt=""></a>
+            </div>
         </div>
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
         <script type="text/javascript" src="js/jquery.cookie.js"></script>
         <script type="text/javascript" src="js/common.js"></script>
-        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/setting.js"></script>
     </body>
 </html>
