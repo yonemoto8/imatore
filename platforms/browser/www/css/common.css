@@ -14,6 +14,14 @@ body {
     background-color: #fff;
 }
 
+.wrapper #header {
+    position: absolute;
+}
+
+.wrapper #window_title {
+    padding-top: 49px;
+}
+
 h1 {
     font-size:24px;
     font-weight:normal;
